@@ -4,6 +4,11 @@
   font-size:  14px;
 }
 
+html, body, #__next {
+  height: 100%;
+  margin: 0;
+}
+
 .avatar {
   border-radius: 50%;
   object-fit: cover;
@@ -12,5 +17,24 @@
   display: none
 }
 
+input {
+  &::placeholder{
+    /*funciona no chrome, opera, safari e firefox*/
+    color: $cinza2;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    /*Funciona no IE DO 10 ao 11*/
+    color: $cinza2;
+  }
+  &::-ms-input-placeholder {
+    /*Funciona no edge*/
+    color: $cinza2;
+  }
+
+}
+
 @import '../../public/fonts/fonts.scss';
 @import '../../componentes/botao/botao.scss';
+@import '../../componentes/inputPublico/inputPublico.scss';
+@import './paginaPublica.scss';
