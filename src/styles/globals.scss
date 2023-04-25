@@ -34,6 +34,31 @@ input {
 
 }
 
+.desktop{
+  @media screen and (min-width: $desktopBreakpoint) {
+    display: block;
+
+  }
+
+  @media screen and (max-width: calc($desktopBreakpoint - 1px)) {
+    display: none;
+
+  }
+}
+
+  .mobile{
+    @media screen and (min-width: $desktopBreakpoint) {
+      display: none;
+  
+    }
+  
+    @media screen and (max-width: calc($desktopBreakpoint - 1px)) {
+      display: block;
+  
+    }
+  
+}
+
 @import '../../public/fonts/fonts.scss';
 @import '../../componentes/botao/botao.scss';
 @import '../../componentes/inputPublico/inputPublico.scss';
