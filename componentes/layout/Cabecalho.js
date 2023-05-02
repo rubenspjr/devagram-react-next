@@ -4,13 +4,17 @@ import imagemLupa from "../../public/imagens/lupa.svg";
 import Navegacao from "./Navegacao";
 import { useState } from "react";
 import ResultadoPesquisa from "./ResultadoPesquisa";
+import UsuarioService from "../../services/UsuarioService";
+import { useRouter } from "next/router";
 
+const usuarioService = new UsuarioService();
 
 export default function Cabecalho( ) {
     const [resultadoPesquisa, setResultadoPesquisa] = useState([]);
-    const [termoPesquisado, setTermoPesquisado] = useState([]);
+    const [termoPesquisado, setTermoPesquisado] = useState('');
+    const router = useRouter();
 
-    const aoPesquisasr = (e) => {
+    const aoPesquisasr = async (e) => {
         setTermoPesquisado(e.target.value);
         setResultadoPesquisa([]);
 
@@ -18,35 +22,24 @@ export default function Cabecalho( ) {
             return;
         }
 
-        setResultadoPesquisa([
-            {
-                avatar: '',
-                nome: 'toretto',
-                email: 'toretto@toretto.com',
-                _id : '12345'
+        try {
+            const { data } = await usuarioService.pesquisar(termoPesquisado);
+            setResultadoPesquisa(data);
+        } catch (error) {
+            alert('Erro ao pesquisar usuario.' + error?.response?.data?.erro);
+        }
 
-            },
-
-            {
-                avatar: '',
-                nome: 'Toretta',
-                email: 'toretta@toretto.com',
-                _id : '2655565',
-
-            },
-
-            {
-                avatar: '',
-                nome: 'torettao',
-                email: 'torettao@toretto.com',
-                _id : '18888885',
-
-            }
-        ])
+        
     }
 
-    const aoClicarResultadoPesquisa = () => {
-        console.log('aoClicarResultadoPesquisa', {id});
+    const aoClicarResultadoPesquisa = (id) => {
+        setResultadoPesquisa([]);
+        setTermoPesquisado('');
+        router.push(`/perfil/${id}`)
+    }
+
+    const redirecionarParaHome = () => {
+        router.push('/');
     }
 
     return (
@@ -54,6 +47,7 @@ export default function Cabecalho( ) {
             <div className="conteudoCabecalhoPrincipal">
                 <div className="logoCabecalhoPrincipal">
                     <Image
+                        onClick={redirecionarParaHome}
                         src={logoHorizontalImg}
                         alt='logo devagram'
                         layout="fill"
@@ -93,7 +87,7 @@ export default function Cabecalho( ) {
                      ))}
 
             </div>
-            )};
+            )}
 
 
         </header>
