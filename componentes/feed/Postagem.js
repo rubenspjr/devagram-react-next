@@ -118,7 +118,7 @@ export default function Postagem ({
                     </div>
 
                     <div className="comentariosDaPublicacao">
-                        {comentarios.map((comentario, i )=> (
+                        {comentarios?.map((comentario, i )=> (
                             <div className="comentario" key= {i}>
                                 <strong className="nomeUsuario">{comentario.nome}</strong>
                                 <p className="descricao">{comentario.mensagem}</p>

@@ -89,7 +89,7 @@ input {
   body {
     @media screen and (min-width: $desktopBreakpoint) {
       background-color: $cinza5;
-      background-image: url('/public/imagens/imagemDeFundoDesktop.svg');
+      background-image: url('../../public/imagens/imagemDeFundoDesktop.svg');
     }
   }
 
