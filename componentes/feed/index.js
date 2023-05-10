@@ -4,7 +4,7 @@ import FeedServices from "../../services/FeedService";
 
 const feedService = new FeedServices();
 
-export function Feed({usuarioLogado}) {
+export  default function Feed({usuarioLogado}) {
     const [listaDePostagens, setListaDePostagens] = useState ([]);
 
     useEffect (() => {
