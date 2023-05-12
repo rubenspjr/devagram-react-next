@@ -1,5 +1,5 @@
 import HttpServices from "./HttpServices";
-import imagemAvatar from "../public/imagens/avatar.svg";
+
 
 export default class UsuarioService extends HttpServices{
     async login (credenciais){
@@ -31,6 +31,10 @@ export default class UsuarioService extends HttpServices{
 
     async pesquisar (termoDaPesquisa) {
         return this.get ('/pesquisa?filtro=' + termoDaPesquisa);
+    }
+
+    async obterPerfil(idUsuario){
+        return this.get(`/pesquisa?id=${idUsuario}`)
     }
 
     obterInformacoesDoUsuarioLogado () {

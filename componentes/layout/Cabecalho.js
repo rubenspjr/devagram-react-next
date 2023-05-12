@@ -7,9 +7,12 @@ import ResultadoPesquisa from "./ResultadoPesquisa";
 import UsuarioService from "../../services/UsuarioService";
 import { useRouter } from "next/router";
 
+
+
 const usuarioService = new UsuarioService();
 
-export default function Cabecalho( ) {
+
+export default function Cabecalho() {
     const [resultadoPesquisa, setResultadoPesquisa] = useState([]);
     const [termoPesquisado, setTermoPesquisado] = useState('');
     const router = useRouter();
@@ -98,3 +101,5 @@ export default function Cabecalho( ) {
         </header>
     );
 }
+
+
