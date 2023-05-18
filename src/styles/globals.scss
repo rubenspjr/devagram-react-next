@@ -100,6 +100,20 @@ input {
     }
   }
 
+  .linhaDivisoria{
+    margin: auto;
+    border: none;
+    background-color: $cinza1;
+    height: 1px;
+    width: 94%;
+
+      @media screen and (min-width: $desktopBreakpoint) {
+        margin: 0 auto;
+        width: 94%;
+      }
+    
+  }
+
   a {
     text-decoration: none
   }

@@ -2,6 +2,7 @@
     display: flex;
     padding-left: 20px;
     padding-right: 20px;
+
     h3 {
         font-family: $fontBold;
         font-size: 16px;
@@ -9,5 +10,11 @@
         text-align: center;
     }
 
-    
+    .btnAcaoDireita {
+        border: none;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        cursor:pointer
+    }
 }

@@ -1,20 +1,106 @@
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import UsuarioService from '../../services/UsuarioService'
 import imgSetaEsquerda from '../../public/imagens/setaEsquerda.svg'
-import CabacalhoComAcoes from '../cabecalhoComAcoes'
+import imgLogout from '../../public/imagens/logout.svg'
+import CabecalhoComAcoes from '../cabecalhoComAcoes'
+import Image from 'next/image'
 import Avatar from '../avatar'
 import Botao from '../botao'
 
+const usuarioService = new UsuarioService()
 
 export default function CabecalhoPerfil ({
     usuario,
+    estaNoPerfilPessoal
+    
 }) {
+    const router = useRouter()
+    const [estaSeguindoUsuario, setEstaSeguindoUsuario]= useState (false);
+    const [quantidadeSeguidores, setQuantidadeSeguidores]= useState (0);
+
+    useEffect (() =>{
+        if(!usuario){
+            return;
+        }
+    
+        setEstaSeguindoUsuario(usuario.segueEsseUsuario);
+        setQuantidadeSeguidores(usuario.seguidores);
+    },[usuario])
+
+    const obterTextoBotao = () => {
+        if(estaNoPerfilPessoal){
+            return 'Editar perfil';
+        }
+        if (estaSeguindoUsuario) {
+            return'Deixar de seguir';
+        }
+        return 'Seguir'
+    }
+
+    const obterCorBotaoSeguir = () => {
+        if(estaSeguindoUsuario || estaNoPerfilPessoal) {
+            return 'primaria'
+        }
+        return 'invertido'
+    }
+
+    const manipularCliqueBotaoPrincipal = async () => {
+        if(estaNoPerfilPessoal){
+           return router.push('/perfil/editar')
+        }
+
+        try {
+            await usuarioService.alternarSeguir(usuario._id);
+            setEstaSeguindoUsuario(
+                estaSeguindoUsuario
+                ? (quantidadeSeguidores - 1)
+                : (quantidadeSeguidores + 1)
+            );
+
+            setEstaSeguindoUsuario(!estaSeguindoUsuario)
+            
+        } catch (error) {
+            alert(`Erro ao seguir/deixar de seguir !`)
+        }
+
+    }
+
+    const aoClicarSetaEsquerda = () => {
+        router.back();
+    }
+
+    const logout = () => {
+        usuarioService.logout();
+        router.push('/')
+    }
+
+    const obterElementoDireitaCabecalho = () => {
+        if(estaNoPerfilPessoal){
+            return(
+                <Image
+                src={imgLogout}
+                alt= 'icone logout'
+                onClick={logout}
+                width={25}
+                height={25}
+            />
+            )
+        }
+        return null;
+    }
+
     return (
         <div className='cabecalhoPerfil largura30pctDesktop'> 
-            <CabacalhoComAcoes
-            iconeEsquerda={imgSetaEsquerda}
+        
+            <CabecalhoComAcoes
+            iconeEsquerda={!estaNoPerfilPessoal ? null : imgSetaEsquerda}
+            aoClicarAcaoEsquerda={aoClicarSetaEsquerda}
             titulo={usuario.nome}
+            elementoDireita={obterElementoDireitaCabecalho}
             />
 
-            <hr className='bordaCabecalhoPerfil'/>
+            <hr className='linhaDivisoria'/>
 
 
             <div className='statusPerfil'>
@@ -23,22 +109,23 @@ export default function CabecalhoPerfil ({
                     <div className='statusContainer'>
                         <div className='status'>
                             <strong>{usuario.publicacoes}</strong>
-                            <span>Publications</span>
+                            <span>Publicação</span>
                         </div>
                         <div className='status'>
-                            <strong>{usuario.seguidores}</strong>
-                            <span>Followers</span>
+                            <strong>{quantidadeSeguidores}</strong>
+                            <span>Seguidores</span>
                         </div>
                         <div className='status'>
                             <strong>{usuario.seguindo}</strong>
-                            <span>Following</span>
+                            <span>Seguindo</span>
                         </div>
 
                     </div>
 
                     <Botao
-                        texto={'Following'}
-                        cor='primaria'
+                        texto={obterTextoBotao()}
+                        cor={obterCorBotaoSeguir()}
+                        manipularClique={manipularCliqueBotaoPrincipal}
                     />
 
                 </div>

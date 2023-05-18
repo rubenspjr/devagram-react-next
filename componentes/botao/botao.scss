@@ -18,6 +18,7 @@
 
     &.primaria{
         @include botaoPrimario;
+
         &:hover{
             @include botaoInvertido
         }
@@ -25,8 +26,9 @@
 
     &.invertido{
         @include botaoInvertido;
+        
         &:hover{
-            @include botaoPrimario()
+            @include botaoPrimario;
         }
     }
 

@@ -141,7 +141,7 @@ export default function Postagem ({
 
                     <div className="descricaoDaPostagem">
                         <strong className="nomeUsuario">{usuario.nome}</strong>
-                        <p className="descricao">
+                        <span className="descricao">
                             {obterDescricao()}
                             {descricaoMaiorQueLimite () && (
                                 <span 
@@ -151,7 +151,7 @@ export default function Postagem ({
                                 </span>
                             )}
                            
-                        </p>
+                        </span>
 
                     </div>
 

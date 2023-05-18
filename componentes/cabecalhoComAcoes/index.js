@@ -1,13 +1,15 @@
 import Image from "next/image";
 
-export default function CabacalhoComAcoes ({
-
+export default function CabecalhoComAcoes ({
+    
     className,
     iconeEsquerda,
     textoEsquerda = null,
     aoClicarAcaoEsquerda,
     titulo,
-    elementoDireita
+    elementoDireita,
+    aoClicarElementoDireita,
+
 }) {
     return (
         <div className={`cabecalhoComAcoes ${className}`}>
@@ -32,7 +34,9 @@ export default function CabacalhoComAcoes ({
             {elementoDireita && (
                 <button
                     type='button'
-                >
+                    className="btnAcaoDireita"
+                    onClick={aoClicarElementoDireita}
+                >   
                     {elementoDireita}
 
                 </button>

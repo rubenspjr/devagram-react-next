@@ -30,7 +30,7 @@ export default function InputPublico({
 
             />
             </div>
-              {exibirMensagemValidacao && <p className="mensagemValidacao">{mensagemValidacao}</p>}  
+              {exibirMensagemValidacao && <span className="mensagemValidacao">{mensagemValidacao}</span>}  
               
         </div>
     )
