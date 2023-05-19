@@ -48,6 +48,10 @@ export default class UsuarioService extends HttpServices{
         return this.put(`/seguir?id=${idUsuario}`);
     }
 
+    async alterarPerfil (dados){
+        return this.put (`/usuario`, dados)
+    }
+
     obterInformacoesDoUsuarioLogado () {
         return{
             id: localStorage.getItem('id'),

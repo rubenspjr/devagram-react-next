@@ -76,3 +76,77 @@
     }
 
 }
+
+.paginaEditarPerfil{
+    background-color: $branco;
+
+    .conteudoPaginaEditarPerfil {
+        .edicaoAvatar{
+            margin-top: 16px 0px;
+            text-align: center;
+            .avatar{
+                width: 80px;
+                height: 80px;
+                margin-bottom: 2px;
+            }
+            span{
+                font-size: 12px;
+                text-decoration: underline;
+                color: $corPrimaria;
+                cursor: pointer;
+            }
+        }
+        .edicaoNome{
+            margin: 16px 0px;
+            display: flex;
+            align-items: center;
+            padding: 0px 16px;
+
+            label{
+                color: $cinza3;
+            }
+
+            input{
+                flex: 1;
+                border: none;
+                outline: none;
+                padding: 0px 16px;
+                color: $cinza4;
+            }
+
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+
+        .conteudoPaginaEditarPerfil{
+            flex: 1;
+            margin: 30px 0px;
+            
+            .edicaoAvatar{
+                margin: 15px 0px;
+                .avatar{
+                    width: 120px;
+                    height: 120px;
+                }
+
+                span{
+                    
+                    font-size: 14px;
+                }
+
+                .edicaoNome{
+                    label{
+
+                    }
+                    .input {
+
+                    }
+                }
+            }
+        }
+    }
+}

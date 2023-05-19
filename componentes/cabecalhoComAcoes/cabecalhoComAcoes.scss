@@ -15,6 +15,24 @@
         background-color: transparent;
         margin: 0;
         padding: 0;
-        cursor:pointer
+        cursor:pointer;
+        font-family: $fontBold;
+        font-size: 12px;
+        color: $corPrimaria;
+        
+    }
+    
+    .cabecalhoAcoesTextoEsquerda{
+        color: $cinza3;
+        font-size: 12px;
+        display: flex; /*a combinaçao dos displa flex + align-itens center deixa centralizado*/
+        align-items: center;
+        cursor: pointer;
+    }
+
+    @media screen and (min-width: $desktopBreakpoint){
+        .cabecalhoAcoesTextoEsquerda, .btnAcaoDireita{
+            font-size: 14px;
+        }
     }
 }
