@@ -101,11 +101,11 @@ input {
   }
 
   .linhaDivisoria{
-    margin: auto;
+    margin:0;
     border: none;
     background-color: $cinza1;
     height: 1px;
-    width: 94%;
+    
 
       @media screen and (min-width: $desktopBreakpoint) {
         margin: 0 auto;

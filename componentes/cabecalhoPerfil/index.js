@@ -76,25 +76,26 @@ export default function CabecalhoPerfil ({
     }
 
     const obterElementoDireitaCabecalho = () => {
-        if(estaNoPerfilPessoal){
-            return(
+        if (estaNoPerfilPessoal) {
+            return (
                 <Image
-                src={imgLogout}
-                alt= 'icone logout'
-                onClick={logout}
-                width={25}
-                height={25}
-            />
+                    src={imgLogout}
+                    alt='icone logout'
+                    onClick={logout}
+                    width={25}
+                    height={25}
+                />
             )
         }
+
         return null;
     }
-
+   
     return (
         <div className='cabecalhoPerfil largura30pctDesktop'> 
         
             <CabecalhoComAcoes
-            iconeEsquerda={!estaNoPerfilPessoal ? null : imgSetaEsquerda}
+            iconeEsquerda={estaNoPerfilPessoal ? null : imgSetaEsquerda}
             aoClicarAcaoEsquerda={aoClicarSetaEsquerda}
             titulo={usuario.nome}
             elementoDireita={obterElementoDireitaCabecalho}
