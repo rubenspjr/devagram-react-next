@@ -41,7 +41,7 @@
 
         .rodapeDaPostagem {
             padding: 5px 16px;
-
+            
             strong.nomeUsuario {
                 font-size: 12px;
                 float: left;
@@ -91,7 +91,12 @@
                     
                 }
             }
-           
+            
+            .comentariosDaPublicacao {
+                max-height: 100px;
+                overflow-y: auto;
+
+            }
     
 
         }
@@ -138,6 +143,12 @@
                     >img {
                         cursor: pointer;
                     }
+                }
+
+                .comentariosDaPublicacao {
+                    max-height: 100px;
+                    overflow-y: auto;
+    
                 }
             }
 
