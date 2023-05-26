@@ -1,9 +1,10 @@
 import Link from "next/link";
+import React from "react";
 import Image from "next/legacy/image";
 import Botao from "../../../componentes/botao";
 import InputPublico from "../../../componentes/inputPublico";
 import { UploadImagem } from "../../../componentes/uploadUImagem";
-import { useState } from "react";
+import { useState, useRouter } from "react";
 import {validarConfirmacaoSenha,validarEmail,validarNome,validarSenha} from "../../../utils/validadores";
 import UsuarioService from "../../../services/UsuarioService";
 
