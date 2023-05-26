@@ -7,7 +7,6 @@ import { UploadImagem } from "../../../componentes/uploadUImagem";
 import { useState, useRouter } from "react";
 import {validarConfirmacaoSenha,validarEmail,validarNome,validarSenha} from "../../../utils/validadores";
 import UsuarioService from "../../../services/UsuarioService";
-
 import imagemLogo from "../../../public/imagens/logo.svg";
 import imagemChave from "../../../public/imagens/chave.svg";
 import imagemEnvelope from "../../../public/imagens/envelope.svg";
