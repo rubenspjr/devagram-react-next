@@ -6,7 +6,7 @@ import UsuarioService from "../../services/UsuarioService";
 
 const usuarioService = new UsuarioService
 
-export default function index() {
+export default function Index() {
   
     const  [estaAutenticado, setEstaAutenticado] = useState(false);
 
