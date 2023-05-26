@@ -13,7 +13,7 @@ import imagemChave from "../../../public/imagens/chave.svg";
 import imagemEnvelope from "../../../public/imagens/envelope.svg";
 import imagemUsuarioAtivo from "../../../public/imagens/usuarioAtivo.svg";
 import imagemAvatar from "../../../public/imagens/avatar.svg";
-import { useRouter } from "next/router";
+
 
 const usuarioService = new UsuarioService();
 
