@@ -82,8 +82,8 @@ export default function CabecalhoPerfil ({
                     src={imgLogout}
                     alt='icone logout'
                     onClick={logout}
-                    width={25}
-                    height={25}
+                    width={23}
+                    height={23}
                 />
             )
         }
@@ -98,7 +98,7 @@ export default function CabecalhoPerfil ({
             iconeEsquerda={estaNoPerfilPessoal ? null : imgSetaEsquerda}
             aoClicarAcaoEsquerda={aoClicarSetaEsquerda}
             titulo={usuario.nome}
-            elementoDireita={obterElementoDireitaCabecalho}
+            elementoDireita={obterElementoDireitaCabecalho()}
             />
 
             <hr className='linhaDivisoria'/>
