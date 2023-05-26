@@ -14,7 +14,8 @@
     .cabecalhoAcoesTextoEsquerda{
         color: $cinza3;
         font-size: 12px;
-        
+        display: flex; /*a combinaçao dos displa flex + align-itens center deixa centralizado*/
+        align-items: center;
         cursor: pointer;
     }
     .btnAcaoDireita {
